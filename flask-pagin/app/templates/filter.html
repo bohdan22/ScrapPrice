@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>microblog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  </head>
+  <style>
+  .pagination{
+    display: block;
+    text-align: center;
+    font-size: 25pt;
+  }
+  a:link {
+    text-decoration:none;
+  }
+  </style>
+  <body style="background-color:rgb(255, 245, 238);">
+   <hr>
+  <div class="container">
+     <h1 class="display-5" style="margin: 40px 0;" align="center">Notebooks</h1> 
+     <div class="index" align="center">
+        <form action="/filter" method=post >
+        <p>Input price</p>
+        <input type=text name=froms "></br>
+        <input type=text name=to "></br>
+        <div class="actions"><input type=submit value="Search"></div>
+        </form>
+   </div>
+     <table class="table">
+        <thead>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Image</th>
+        </thead>
+        <tbody>
+            {% for rv in results %}
+           <tr>
+              <td><p>Laptop: <span style="color: green;">{{rv[0]}}</span></p></td>
+              <td><p>Price:<span style="color: red;">{{rv[1]}}</span></p></td>
+              <td><p><img src="{{url_for('static', filename = rv[2])}}" alt="{{rv[2]}}" width = '100' height='100'></p></td>
+           </tr>
+
+            {% endfor %}
+        </tbody>
+     </table>
+  </body>
+</html>

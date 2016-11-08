@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>microblog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  </head>
+  <style>
+  .pagination{
+    display: block;
+    text-align: center;
+    font-size: 25pt;
+  }
+  a:link {
+    text-decoration:none;
+  }
+  .actions{
+   margin-top: 20px;
+  }
+  .form-control{
+   margin-bottom: 10px;
+  }
+  .full-width {
+   width: 200px !important;
+  }
+  .flexed {
+   height: 50px !important;
+  }
+  .justify-left {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .justify-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .self-align {
+    align-self: center;
+  }
+  </style>
+  <body style="background-color:rgb(255, 245, 238);">
+   <hr>
+  <div class="container">
+     <h1 class="display-5" style="margin: 40px 0;" align="center">Notebooks</h1> 
+     <div class="index" align="center">
+        <form action="/search" method=post class="form-inline" >
+         <div class="form-group">
+            <label for="inputPassword4">
+            Enter the name of the notebook:</label>
+            <input type=text name=search id="inputPassword4" class="form-control" aria-describedby="passwordHelpInline"></br>
+            <hr>
+            <p>PRICE</p>
+            <div class="container">
+               <div class="row">
+                  <div class="col-xs-4 justify-right flexed">
+                     <label style="align-self: center;" for="inputPassword4">From:</label>
+                  </div>
+                  <div class="col-xs-8 justify-left flexed">
+                     <input type=text name=froms name=search id="inputPassword4" class="form-control full-width" aria-describedby="passwordHelpInline"></br>
+                  </div>
+
+                  <div class="col-xs-4 justify-right flexed">
+                     <label style="align-self: center;" for="inputPassword4">To:</label>
+                  </div>
+                  <div class="col-xs-8 justify-left flexed">
+                     <input type=text name=to name=search id="inputPassword4" class="form-control full-width" aria-describedby="passwordHelpInline"></br>
+                  </div>
+                  <div>
+                     <input id="check2" type="checkbox" name="check" value='1'>
+                     <label for="check2">DISCOUNT</label>
+                  </div>
+               </div>
+            </div>
+         <div class="actions"><input type=submit value="Search"></div>
+        </form>
+   </div>
+     <table class="table">
+        <thead>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Image</th>
+           <th>Discount</th>
+        </thead>
+        <tbody>
+            {% for rv in result %}
+           <tr>
+              <td><p>ID: <span style="color: green;">{{rv[0]}}</span></p></td>
+              <td><p>Laptop: <span style="color: green;">{{rv[1]}}</span></p></td>
+              <td><p>Price:<span style="color: red;">{{rv[2]}}</span></p></td>
+              <td><p><img src="{{url_for('static', filename = rv[3])}}" alt="{{rv[3]}}" width = '100' height='100'></p></td>
+              <td><p>Discount:<span style="color: blue;">{{rv[4]}}</span></p></td>
+           </tr>
+
+            {% endfor %}
+        </tbody>
+     </table>
+  </body>
+</html>

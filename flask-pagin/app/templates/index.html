@@ -1,0 +1,465 @@
+<html>
+  <head>
+    <title>microblog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  </head>
+  <style>
+  .pagination{
+  display: block;
+  text-align: center;
+  font-size: 25pt;
+  }
+  a:link {
+    text-decoration:none;
+  }
+  .actions{
+   margin-top: 20px;
+  }
+  .form-control{
+   margin-bottom: 10px;
+  }
+  .full-width {
+   width: 200px !important;
+  }
+  .flexed {
+   height: 50px !important;
+  }
+  .justify-left {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .justify-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .self-align {
+    align-self: center;
+  }
+  </style>
+  <body style="background-color:rgb(255, 245, 238);">
+  <div class='pagination'> 
+   <a href="{{page-1}}"><--PREV</a>
+   | 
+   <a href="{{page+1}}">NEXT--></a>
+   </div>
+   <div align="center">
+   {% if page == 0 %}
+   <a href='0'>1</a>
+   <a href='1'>2</a>
+   <a href='2'>3</a>
+   <a href='3'>4</a>
+   <a href='4'>5</a>
+   <a href='5'>6</a>
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='35'>На послідню сторінку</a>
+   {% elif page == 1 %}
+   <a href='1'>2</a>
+   <a href='2'>3</a>
+   <a href='3'>4</a>
+   <a href='4'>5</a>
+   <a href='5'>6</a>
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   {% elif page == 2 %}
+   <a href='2'>3</a>
+   <a href='3'>4</a>
+   <a href='4'>5</a>
+   <a href='5'>6</a>
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   {% elif page == 3 %}
+   <a href='3'>4</a>
+   <a href='4'>5</a>
+   <a href='5'>6</a>
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   {% elif page == 4 %}
+   <a href='4'>5</a>
+   <a href='5'>6</a>
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+  <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   {% elif page == 5 %}
+   <a href='5'>6</a>
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   {% elif page == 6 %}
+   <a href='6'>7</a>
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   {% elif page == 7 %}
+   <a href='7'>8</a>
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='9'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   {% elif page == 8 %}
+   <a href='8'>9</a>
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   {% elif page == 9 %}
+   <a href='9'>10</a>
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   {% elif page == 10 %}
+   <a href='10'>11</a>
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   {% elif page == 11 %}
+   <a href='11'>12</a>
+   <a href='12'>13</a>
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   {% elif page == 12 %}
+   <a href='13'>14</a>
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   {% elif page == 13 %}
+   <a href='14'>15</a>
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   {% elif page == 14 %}
+   <a href='15'>16</a>
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   {% elif page == 15 %}
+   <a href='16'>17</a>
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   {% elif page == 16 %}
+   <a href='17'>18</a>
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   {% elif page == 17 %}
+   <a href='18'>19</a>
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   {% elif page == 18 %}
+   <a href='19'>20</a>
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   {% elif page == 19 %}
+   <a href='20'>21</a>
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   {% elif page == 20 %}
+   <a href='21'>22</a>
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   {% elif page == 21 %}
+   <a href='22'>23</a>
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   {% elif page == 22 %}
+   <a href='23'>24</a>
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   {% elif page == 23 %}
+   <a href='24'>25</a>
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   {% elif page == 24 %}
+   <a href='25'>26</a>
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   {% elif page == 25 %}
+   <a href='26'>27</a>
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 26 %}
+   <a href='27'>28</a>
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 27 %}
+   <a href='28'>29</a>
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 28 %}
+   <a href='29'>30</a>
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 29 %}
+   <a href='30'>31</a>
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 30 %}
+   <a href='31'>32</a>
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 31 %}
+   <a href='32'>33</a>
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 32 %}
+   <a href='33'>34</a>
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 33 %}
+   <a href='34'>35</a>
+   <a href='35'>36</a>
+   {% elif page == 34 %}
+   <a href='35'>36</a>
+   {% elif page == 35 %}
+   <a href='0'>Повернутись на початок</a>
+   </div>
+   {% endif %}
+   <hr>
+  <div class="container">
+     <h1 class="display-5" style="margin: 40px 0;" align="center">Notebooks</h1> 
+     <div class="index">
+        <form action="/search" method=post class="form-inline" >
+         <div class="form-group">
+            <label for="inputPassword4">
+            Enter the name of the notebook:</label>
+            <input type=text name=search id="inputPassword4" class="form-control" aria-describedby="passwordHelpInline"></br>
+            <hr>
+            <p>PRICE</p>
+            <div class="container">
+               <div class="row">
+                  <div class="col-xs-4 justify-right flexed">
+                     <label style="align-self: center;" for="inputPassword4">From:</label>
+                  </div>
+                  <div class="col-xs-8 justify-left flexed">
+                     <input type=text name=froms name=search id="inputPassword4" class="form-control full-width" aria-describedby="passwordHelpInline"></br>
+                  </div>
+
+                  <div class="col-xs-4 justify-right flexed">
+                     <label style="align-self: center;" for="inputPassword4">To:</label>
+                  </div>
+                  <div class="col-xs-8 justify-left flexed">
+                     <input type=text name=to name=search id="inputPassword4" class="form-control full-width" aria-describedby="passwordHelpInline"></br>
+                  </div>
+                  <div>
+                     <input id="check2" type="checkbox" name="check" value='1'>
+                     <label for="check2">DISCOUNT</label>
+                  </div>
+               </div>
+            </div>
+         <div class="actions"><input type=submit value="Search"></div>
+        </form>
+   </div>
+   <p>
+     <table class="table">
+        <thead>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Image</th>
+           <th>Discount</th>
+           <th>Prices on others sites</th>
+            <th>Average</th>
+            <th>MIN</th>
+           <th>MAX</th>
+        </thead>
+        <tbody>
+            {% for item in data %}
+           <tr>
+              <td><p>ID: <span style="color: green;">{{item[0]}}</span></p></td>
+              <td><p>Laptop: <span style="color: green;">{{item[1]}}</span></p></td>
+              <td><p>Price:<span style="color: red;">{{item[2]}}</span></p></td>
+              <td><p><img src="{{url_for('static', filename = item[3])}}" alt="{{item[3]}}" width = '100' height='100'></p></td>
+              <td><p>Discount:<span style="color: blue;">{{item[4]}}</span></p></td>
+                <td><p><span style=""><mark>Prices:</mark> {{ item[5] }}</span><br><br>
+                    <span><mark>Sites:</mark> {{ item[6] }}</span>
+                    </p></td>
+                <td><p>AVG: <span style="color: green;">{{item[7]}}</span></p></td>
+                <td><p>MIN: <span style="color: green;">{{item[8]}}</span></p></td>
+                <td><p>MAX: <span style="color: green;">{{item[9]}}</span></p></td>
+            {% endfor %}
+           </tr>
+        </tbody>
+     </table>
+   </div>
+   <hr>
+   <div class='pagination'>
+   <a href="{{page-1}}"><--PREV</a>
+   |
+   <a href="{{page+1}}">NEXT--></a> 
+   </div>
+  </body>
+</html>
